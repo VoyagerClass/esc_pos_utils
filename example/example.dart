@@ -1,4 +1,3 @@
-import 'package:image/image.dart';
 import 'dart:typed_data';
 import 'package:flutter/services.dart';
 import 'package:esc_pos_utils/esc_pos_utils.dart';
@@ -53,8 +52,7 @@ Future<void> main() async {
   // Print image:
   final ByteData data = await rootBundle.load('assets/logo.png');
   final Uint8List imgBytes = data.buffer.asUint8List();
-  final Image image = decodeImage(imgBytes)!;
-  bytes += generator.image(image);
+  //bytes += generator.image(image);
   // Print image using an alternative (obsolette) command
   // bytes += generator.imageRaster(image);
 

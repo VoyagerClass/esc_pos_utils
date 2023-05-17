@@ -9,7 +9,7 @@
 import 'dart:convert';
 import 'dart:typed_data' show Uint8List;
 import 'package:hex/hex.dart';
-import 'package:image/image.dart';
+//import 'package:image/image.dart';
 import 'package:gbk_codec/gbk_codec.dart';
 import 'package:esc_pos_utils/esc_pos_utils.dart';
 import 'enums.dart';
@@ -136,7 +136,7 @@ class Generator {
   ///
   /// [image] Image to extract from
   /// [lineHeight] Printed line height in dots
-  List<List<int>> _toColumnFormat(Image imgSrc, int lineHeight) {
+  /* List<List<int>> _toColumnFormat(Image imgSrc, int lineHeight) {
     final Image image = Image.from(imgSrc); // make a copy
 
     // Determine new width: closest integer that is divisible by lineHeight
@@ -160,10 +160,10 @@ class Generator {
     }
 
     return blobs;
-  }
+  } */
 
   /// Image rasterization
-  List<int> _toRasterFormat(Image imgSrc) {
+  /*  List<int> _toRasterFormat(Image imgSrc) {
     final Image image = Image.from(imgSrc); // make a copy
     final int widthPx = image.width;
     final int heightPx = image.height;
@@ -191,7 +191,7 @@ class Generator {
 
     // Pack bits into bytes
     return _packBitsIntoBytes(oneChannelBytes);
-  }
+  } */
 
   /// Merges each 8 values (bits) into one byte
   List<int> _packBitsIntoBytes(List<int> bytes) {
@@ -567,7 +567,7 @@ class Generator {
   /// Print an image using (ESC *) command
   ///
   /// [image] is an instanse of class from [Image library](https://pub.dev/packages/image)
-  List<int> image(Image imgSrc, {PosAlign align = PosAlign.center}) {
+/*   List<int> image(Image imgSrc, {PosAlign align = PosAlign.center}) {
     List<int> bytes = [];
     // Image alignment
     bytes += setStyles(PosStyles().copyWith(align: align));
@@ -609,12 +609,12 @@ class Generator {
     // Reset line spacing: ESC 2 (HEX: 0x1b 0x32)
     bytes += [27, 50];
     return bytes;
-  }
+  } */
 
   /// Print an image using (GS v 0) obsolete command
   ///
   /// [image] is an instanse of class from [Image library](https://pub.dev/packages/image)
-  List<int> imageRaster(
+  /*  List<int> imageRaster(
     Image image, {
     PosAlign align = PosAlign.center,
     bool highDensityHorizontal = true,
@@ -658,7 +658,7 @@ class Generator {
       bytes += List.from(header2);
     }
     return bytes;
-  }
+  } */
 
   /// Print a barcode
   ///
